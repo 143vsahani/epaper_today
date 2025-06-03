@@ -1,0 +1,13 @@
+<h2>Available ePapers</h2>
+<ul>
+    {% for paper in epapers %}
+        <li>
+            <strong>{{ paper.title }}</strong> - {{ paper.date }}<br>
+            <a href="{{ paper.file.url }}">Download</a><br>
+            <p>{{ paper.description }}</p>
+        </li>
+    {% empty %}
+        <li>No ePapers found.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'upload_epaper' %}">Upload New</a>
